@@ -33,3 +33,12 @@ Route::get('/', 'frontcontroller@index');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+       //category routes
+
+Route::get('/category/save','CategoryController@index');
+
+Route::post('/category/save','CategoryController@save');
+
+Route::get('/category/manage','CategoryController@manage');
+
