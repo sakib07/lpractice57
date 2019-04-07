@@ -35,10 +35,18 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
        //category routes
+Route::prefix ('category')->group(function(){
 
-Route::get('/category/save','CategoryController@index');
+	    
+	Route::get('/save','CategoryController@index');
+	Route::post('/save','CategoryController@save');
+	Route::get('/manage','CategoryController@manage');
+	Route::get('/edit/{id}','CategoryController@edit');
+	Route::post('/edit','CategoryController@update');
+	Route::get('/delete/{id}','CategoryController@delete');
 
-Route::post('/category/save','CategoryController@save');
+});
 
-Route::get('/category/manage','CategoryController@manage');
+
+
 

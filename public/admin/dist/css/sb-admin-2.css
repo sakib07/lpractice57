@@ -22,7 +22,9 @@ a {
   color: #fff;
   text-decoration: none;
 }
-
+.panel-body a{
+  color: blue;
+}
 .nav > li > a:focus, .nav > li > a:hover {
   background-color: #fff;
   color: #fff;

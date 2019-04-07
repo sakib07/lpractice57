@@ -6,6 +6,8 @@ Admin: Category Manage
 
 @section('content-heading')
 Category Control Area
+<br>
+{{ Session::get('message')}}
 @endsection
 
 @section('mainContent')
@@ -32,8 +34,8 @@ Category Control Area
                 <td>{{ ++$i }}</td>
                 <td>{{ $singleCategory->categoryName}}</td>
                 <td>{{ $singleCategory->shortDescription}}</td>
-                <td class="center">{{ ($singleCategory->PublicationStatus == 1)? 'Published' : 'Unpublished'}}</td>
-                <td class="center">Edit | Delete</td>
+                <td class="center">{{ ($singleCategory->publicationStatus == 1)? 'published' : 'Unpublished'}}</td>
+        <td class="center"><a href="{{url('/category/edit/'.$singleCategory->id) }}"> Edit </a> | <a href="{{url('/category/delete/'.$singleCategory->id) }}"> Delete</a></td>
             </tr>
             @endforeach
 
