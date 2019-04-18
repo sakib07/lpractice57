@@ -15,12 +15,26 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(User::class, function (Faker $faker) {
+// $factory->define(App\Category::class, function (Faker $faker) {
+//     return [
+//         'categoryName' => $faker->name,
+//         'shortDescription' => $faker->text,
+//         'publicationStatus' =>1
+        
+//     ];
+// });
+
+
+
+$factory->define(App\Product::class, function (Faker $faker) {
     return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'email_verified_at' => now(),
-        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-        'remember_token' => Str::random(10),
+        'productName' => $faker->word,
+        'categoryId' => 19,
+        'price' => $faker->numberBetween($min = 20, $max = 10000),
+        'qty' => $faker->numberBetween($min = 20, $max = 10000),
+        'shortDescription' => $faker->text,
+        'pic' => 'productImage/11images(3).jpg',	
+        'publicationStatus' => 1,
+        
     ];
 });

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Category;
+use DB;
 
 class CategoryController extends Controller
 {
@@ -27,9 +28,13 @@ class CategoryController extends Controller
     }
 
     public function manage(){
-    	$categories = Category::all();
+    	$categories = DB::table('categories')->paginate(5);
+     
+       
     	return view('admin.category.categoryManage',['category'=>$categories]);
     }
+
+
 
     public function edit($id){
     	$CategoryEdit = Category::where('id',$id)->first();
@@ -57,4 +62,6 @@ class CategoryController extends Controller
           return redirect('/category/manage')->with('message','Data Deleted Successfully');
 
     }
+
+
 }

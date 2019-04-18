@@ -5,9 +5,14 @@ Admin: Category Manage
 @endsection
 
 @section('content-heading')
-Category Control Area
-<br>
+Category Control Area<br>
+
 {{ Session::get('message')}}
+
+<h4>Total Item In this Page: {{ $category->count()}}</h4>
+<h4>Total Item: {{ $category->total() }}</h4>
+<h4>Page No: {{ $category->currentPage() }}</h4>
+<h4>From: {{ $category->firstItem() }} No item To {{ $category->lastItem() }} No</h4>
 @endsection
 
 @section('mainContent')
@@ -41,6 +46,8 @@ Category Control Area
 
             </tbody>
             </table>
+
+       {{$category->links()}}     
             </div>
 
 @endsection

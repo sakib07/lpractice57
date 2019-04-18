@@ -1,4 +1,5 @@
-<?php
+ 
+  <?php
 
 use Illuminate\Database\Seeder;
 
@@ -9,8 +10,14 @@ class DatabaseSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+//     public function run()
+//     {
+//        factory(App\Category::class,100)->create();
+//     }
+// }
+
+ public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+       factory(App\Product::class,100)->create();
     }
 }
